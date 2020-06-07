@@ -1,9 +1,5 @@
 
-# rstudiopostcard
+# RStudio postcard
 
-<!-- badges: start -->
-<!-- badges: end -->
-
-![](./images/rstudio_01.png | width = 45%)
-![](./images/rstudio_02.png | width = 45%)
+<img src="./images/rstudio_01.png" width = 400> &nbsp;&nbsp; <img src="./images/rstudio_02.png" width = 400>
 
