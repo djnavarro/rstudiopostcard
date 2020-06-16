@@ -18,8 +18,8 @@ cat("generating image...\n")
 # parameters
 seed_ss <- 339
 shades <- 1000
-grains_wide <- 525
-grains_high <- 740
+grains_wide <- 500
+grains_high <- 750
 
 palette <- paletteer_c(
   palette = "ggthemes::Classic Blue", 
@@ -89,7 +89,7 @@ ftree <- ftree %>%
     coord_y = coord_y * min(1, ar2/ar)
   ) %>% 
   mutate(
-    coord_x = .05 + coord_x * .9,
+    coord_x = .045 + coord_x * .9,
     coord_y = coord_y * .9
   )
 
@@ -110,11 +110,11 @@ set.seed(seed_rd)
 # rain
 rain <- expand_grid(
   x = seq(.01, .99, length.out = 50),
-  y = seq(.01 * 1.41, .99 * 1.41, length.out = round(50 * 1.41))
+  y = seq(.01 * ar, .99 * ar, length.out = round(50 * ar))
 ) %>% 
   mutate(droplet = runif(n()) < .1) %>%  
   group_by(x) %>%
-  mutate(droplet = droplet | lag(droplet) | lag(droplet, 2)) %>%
+  mutate(droplet = droplet | lag(droplet, default = FALSE) | lag(droplet, 2, default = FALSE)) %>%
   ungroup()
 
 rain1 <- rain %>%
@@ -203,7 +203,7 @@ ggsave(
   plot = pic,
   width = grains_wide / 150,
   height = grains_high / 150,
-  dpi = 1200
+  dpi = 2400
 )
 
 

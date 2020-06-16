@@ -18,8 +18,8 @@ cat("generating image...\n")
 # parameters
 seed_ss <- 340
 shades <- 1000
-grains_wide <- 525
-grains_high <- 740
+grains_wide <- 500
+grains_high <- 750
 
 palette <- paletteer_c(
   palette = "viridis::magma", 
@@ -176,5 +176,5 @@ ggsave(
   plot = pic,
   width = grains_wide / 150,
   height = grains_high / 150,
-  dpi = 1200
+  dpi = 2400
 )
